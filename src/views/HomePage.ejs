@@ -8,6 +8,24 @@
 
 <body>
     <h1>Hello chatbot!</h1>
+    <div>
+        <button onclick="setupProfile()">Setup Messenger Profile</button>
+    </div>
 </body>
+
+<script>
+    async function setupProfile() {
+        console.log("click setup");
+        const res = await fetch("/setup-profile", {
+            method: 'POST'
+        });
+        console.log("setup response: ", res);
+        if (res.status === 200) {
+            alert("Setup profile success");
+        } else {
+            alert("Unable to setup profile");
+        }
+    }
+</script>
 
 </html>
