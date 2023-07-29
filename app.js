@@ -1,13 +1,16 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var viewEngine = require("./src/configs/viewEngine");
-var webRoutes = require("./src/routes");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+const viewEngine = require("./src/configs/viewEngine");
+const webRoutes = require("./src/routes");
 
 require('dotenv').config();
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 viewEngine(app);
 webRoutes(app);
 
