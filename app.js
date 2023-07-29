@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors());
+app.use(cors({origin: ['http://localhost:8080', 'https://chatbot-messenger-gold-price.onrender.com']}));
 viewEngine(app);
 webRoutes(app);
 
