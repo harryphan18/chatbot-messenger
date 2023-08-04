@@ -15,9 +15,14 @@
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
-    <div id="fb-customer-chat" class="fb-customerchat" page_id="100095368745722" attribution="setup_tool"
+    <div id="fb-customer-chat" class="fb-customerchat" attribution="setup_tool"
         logged_in_greeting="Salut, comment est-ce que je peux t'aider"
         logged_out_greeting="Salut, comment est-ce que je peux t'aider"></div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", '<%= process.env.PAGE_ID %>');
+    </script>
 
     <script>
         window.fbAsyncInit = function () {
